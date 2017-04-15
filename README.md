@@ -114,28 +114,6 @@ let g:airline_theme='onedark'
 
 ## Miscellaneous
 
-### Customizing onedark.vim's Look Without Forking the Repository
-
-onedark.vim exposes a function called `onedark#set_highlight` that you can call from within your `~/.vimrc` in order to customize the look of onedark.vim by overriding its defaults.
-
-The function's first argument should be the name of a highlight group, and its second argument should be style data.
-
-For example, to remove the background color only when running in terminals (outside GUI mode and for use in transparent terminals,) place the following lines **before** the `colorscheme onedark` line in your `~/.vimrc`:
-
-```vim
-" onedark.vim override: Don't set a background color when running in a terminal;
-" just use the terminal's background color
-" `gui` is the hex color code used in GUI mode/nvim true-color mode
-" `cterm` is the color code used in 256-color mode
-" `cterm16` is the color code used in 16-color mode
-if (has("autocmd") && !has("gui"))
-  let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-  autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " No `bg` setting
-end
-```
-
-More examples of highlight group names and style data can be found in onedark.vim's source code (`colors/onedark.vim` inside this repository).
-
 ### tmux theme
 
 If you'd like a tmux theme that complements onedark.vim, [@odedlaz has you covered](https://github.com/odedlaz/tmux-onedark-theme).
@@ -143,11 +121,3 @@ If you'd like a tmux theme that complements onedark.vim, [@odedlaz has you cover
 ### Contributing
 
 If you'd like to contribute to onedark.vim, check out the [contribution guidelines](./CONTRIBUTING.md).
-
----
-
-Preview images were taken using:
-
-* [iTerm2](https://iterm2.com) terminal emulator on macOS
-* 12 pt. [PragmataPro Mono](http://www.fsd.it/fonts/pragmatapro.htm#.VlDa1q6rTOY) font
-* [vim-polyglot](https://github.com/sheerun/vim-polyglot) plug-in
