@@ -102,6 +102,14 @@ function! s:h(group, style)
     \ "ctermfg=" . l:ctermfg
     \ "ctermbg=" . l:ctermbg
     \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
+  echomsg "highlight" a:group
+    \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
+    \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
+    \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
+    \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
+    \ "ctermfg=" . l:ctermfg
+    \ "ctermbg=" . l:ctermbg
+    \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
 endfunction
 
 " public
@@ -132,7 +140,7 @@ let s:cyan = { "gui": "#56B6C2", "cterm": "38", "cterm16": "6" }
 
 let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16": "7" }
 
-let s:black = { "gui": "#00000", "cterm": "16", "cterm16": "0" }
+let s:black = { "gui": "#000000", "cterm": "16", "cterm16": "0" }
 let s:visual_black = { "gui": "NONE", "cterm": "NONE", "cterm16": s:black.cterm16 } " Black out selected text in 16-color visual mode
 
 let s:purple = { "gui": "#C678DD", "cterm": "170", "cterm16": "5" }
